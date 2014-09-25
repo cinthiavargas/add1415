@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title> A1: Clientes ligeros</title>
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>Clientes ligeros</i></li>
+    <li><b>Componentes del grupo:</b> <i>Cinthia A. Vargas Jim&eacute;nez</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></li>
+    <li><b>Fecha de entrega:</b> <i>24 de Septiembre de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee;  border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'> SERVIDOR  </a> | <a href='#bloque2'>CLIENTE </a> 
+</div>
+
+
+
+
+
+
+
+
+
+
+<h2><font face="arial" ><a id='bloque1'>1. Instalaci&oacute;n del Servidor</a></font></h2>
+<p>
+	<ul disk="circle">
+		<li>Primer paso :Necesitaremos un SO Lubuntu de 32 bits, estar&aacute; a nivel de red en adaptador puente</li>
+		<li>RED EXTERNA : Se modificar&aacute; la IP est&aacute;tica con : 172.16.108.<b>121</b></li>
+		<p><img src='./files/interna.png' border="0" height="45%" width="60%"/></p>
+	</ul>
+	
+	<ul disk="circle">
+		<li>RED INTERNA</li>
+		<p><img src='./files/externa.png' border="0" height="45%" width="60%"/></p>
+
+	</ul>
+	
+	
+	<ul disk="circle">
+		<li>Tercer paso : Creamos 3 usuarios locales :
+				<ul disk="circle">
+				<li>vargas</li>
+				<li>vargas-alumno2</li>
+				<li>vargas-alumno3</li>
+				
+				</ul>
+		
+		</li>
+		<p><img src='./files/usuarios.png' border="0" height="45%" width="60%"/></p>
+
+	</ul>
+
+
+<ul disk="circle">
+<li>Cuarto paso: Ejecutamos lo siguiente ; apt-get install ltsp-server-standalone</li>
+<li>Quinto paso : Instalamos el servidor SSh ; apt-get install openssh-server</li>
+<p><img src='./files/instalacion.png' border="0" height="45%" width="60%"/></p>
+<li>Sexto paso : Configuraci&oacute;n dhcp (/etc/ltsp/dhcpd.conf) </li>
+<p><img src='./files/fichero.png' border="0" height="45%" width="60%"/></p>
+
+
+
+</ul>
+
+
+
+</p>
+
+
+
+<h2><font face="arial"><a id='bloque2'>2. CLIENTE</a></font></h2>
+<p>
+
+<ul disk="circle">
+<li>Primer paso : Creamos la MV cliente , no tendr&aacute; disco duro y unidad de DVD, con red en modo interno</li>
+<p><img src='./files/cliente.png' border="0" height="45%" width="60%"/></p>
+<li>Segundo paso : Iniciamos el servidor y el cliente para verificar si funciona</li>
+<p><img src='./files/final.png' border="0" height="45%" width="60%"/></p>
+
+
+
+
+</p>
+</ul>
+</body>
+</html>
