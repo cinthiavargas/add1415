@@ -1,0 +1,154 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>T&iacute;tulo del trabajo</title>
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Administraci&oacuten de Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>  Acceso remoto SSH</i></li>
+    <li><b>Componentes del grupo:</b> <i>Cinthia A. Vargas Jim&eacutenez</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></li>
+    <li><b>Fecha de entrega:</b> <i> OCTUBRE de 2014</i></li>
+  </ul>
+  </div>
+</div>
+
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'>Preparativos</a> | <a href='#bloque2'>Servidor</a> | <a href='#bloque3'>Clientes </a>
+</div>
+
+
+<h1><a id='bloque1'>Preparativos</a></h1>
+	<p>En la siguiente practica , necesitaremos tres m&aacutequinas virtuales</p>
+		<UL type = square>
+		<LI>Un servidor GNU/Linuxcon IP est&aacutetica   (172.16.108.21)</li>
+		<p> <img src='./files/primero.jpg' /></p>
+		<LI>Un cliente GNU/Linux con IP est&aacutetica 	 (172.16.108.121)</li>
+		<p> <img src='./files/segundo.jpg' /></p>
+		<LI>Un cliente Windows con IP est&aacutetica     (172.16.108.221)</li>
+		 <img src='./files/tercero.png'/>
+		</UL>
+		
+
+
+
+
+
+
+<h1><a id='bloque2'>Servidor GNU/Linux</a></h1>
+
+<UL type = square>
+<li><p>Instalamos openssh-server</p></li>
+<p> <img src='./files/1.jpg' /></p>
+</UL>
+
+<UL type = square>
+
+<p>
+<li>Nombre de usuario: nombre-del-alumno</li>
+<li>Clave del usuario: Y1888840W</li>
+<li>Clave del usuario root: Y1888840W</li>
+<li>Nombre de equipo: ssh-server.vargas</li>
+<li>Nombre de dominio: vargas</li>
+<p>
+<p> <img src='./files/2.jpg' /></p>
+
+
+<li>Crearemos en ssh-server.vargas , los siguientes usuarios :</li>
+</UL>
+<UL type = square>
+<li>remoteuser1</li>
+<li>remoteuser2</li>
+<li>remoteuser3</li>
+<li>remoteuser4</li>
+<p> <img src='./files/6.jpg' /></p>
+
+
+<li>En /etc/hosts , a&ntildeadimos los equipos ssh-client1 y ssh-client2.</li>
+<p> <img src='./files/hosts.png' /></p>
+<li>Desde el propio SSH-SERVER, verificar que el servicio est&aacute en ejecuci&oacuten: "service ssh status", "/etc/init.d/ssh status", o con "ps -ef|grep ssh"</li>
+<p> <img src='./files/8.jpg' /></p>
+
+<li>Comprobar el funcionamiento de la conexión SSH desde cada cliente usando el usuario remoteuser1. Desde el cliente hacemos "ssh remoteuser1@ssh-server".</li>
+<p> <img src='./files/10.png' /></p>
+<li>Generar nuevas claves de equipo en SSH-SERVER. Como usuario root ejecutamos en SSH-SERVER: "ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key"</li>
+<p> <img src='./files/11.jpg' /></p>
+<li>Comprobar qué sucede al volver a conectarnos desde los clientes, usando el usuario remoteuser2 y remoteuser1. ¿Qué sucede?</li>
+<p> <img src='./files/12.jpg' /></p>
+<p> <img src='./files/13.png' /></p>
+<li><b>Prompt Bash</b></li>
+<li>Editamos el fichero de configuración del usuario en la máquina servidor /home/remoteuser1/.bashrc</li>
+<p> <img src='./files/14.png' /></p>
+<li>Iniciamos sesión con nuestro usuario desde la máquina cliente y ejecutamos "ssh-keygen -t rsa" para generar un nuevo par de claves para el usuario en "/home/nuestro-usuario/.ssh/id_rsa" y "/home/nuestro-usuario/.ssh/id_rsa.pub"</li>
+<p> <img src='./files/4_4.png' /></p>
+<li>Ahora vamos a copiar la clave pública (id_rsa.pub) del usuario de la máquina cliente, al fichero "authorized_keys" del usuario remoteuser4 en el servidor. Hacemos "scp .ssh/id_rsa.pub remoteuser4@ssh-server:.ssh/authorized_keys" </li>
+<p>Ahora podremos acceder remotamente, sin escribir la clave de acceso.</p>
+<p> <img src='./files/4_6.png' /></p>
+<li><b>SSH como túnel para X</b></li>
+<li>Instalar en el servidor una aplicación de entorno gráfico que no esté en el cliente."GEANY" </li>
+<p> <img src='./files/5_1.png' /></p>
+<li>Desde el servidor, fichero de configuración /etc/ssh/sshd_config (X11Forwarding yes) "mostrar en imagen"</li>
+<p> <img src='./files/5_2.png' /></p>
+<li>Comprobar el funcionamiento del GEANY desde cliente GNU/Linux.</li>
+<p> <img src='./files/5_4.png' /></p>
+<li><b>Aplicaciones Windows nativas</b></li>
+<li>Instalamos "Wine" ,comprobamos el funcionamiento accediento al "notepad" en ssh-server </li>
+<p> <img src='./files/6_4.png' /></p>
+<li>Desde cliente</li>
+<img src='./files/6_5.png' />
+<H3><li><b>Restricciones</b></li></H3>
+<li><b>TOTAL</b></li>
+<li>Modificamos el fichero de configuración del servidor SSH (/etc/ssh/sshd_config) para conseguir restringir el acceso a determinados usuarios</li>
+<p> <img src='./files/7_2_1.png' /></p>
+<li>Comprobamos y accedemos , tiene que denegarnos el permiso </li>
+<p> <img src='./files/7_2_3.png' /></p>
+<li>EN LAS MÁQUINAS</li>
+<LI>Modificamos los ficheros /etc/hosts.allow y /etc/host.deny, con el fin de que  el servidor deniege accesos a todas las máquinas, excepto nuestros clientes</LI>
+<p> <img src='./files/7_3_1.png' /></p>
+<p> <img src='./files/7_3_2.png' /></p>
+<H3><li><b>APLICACIONES</b></li></H3>
+<li>Crear grupo remoteapps</li>
+<p> <img src='./files/7_4_2.png' /></p>
+<li>Incluimos el usuario 4 al grupo</li>
+<p> <img src='./files/7_4_3.png' /></p>
+<li>Permisos del ejecutable de "GEANY" a 750. Para impedir que los que no pertenezcan al grupo puedan ejecutar el programa.</li>
+<p> <img src='./files/7_4_4.png' /></p>
+</UL>
+<h1><a id='bloque3'>Clientes</a></h1>
+<h2>Cliente GNU/Linux</h2>
+<UL type = square>
+<li>Nombre de usuario: cinthia</li>
+<li>Clave del usuario: Y1888840W</li>
+<li>Clave del usuario root: Y1888840W</li>
+<li>Nombre de equipo: ssh-client.vargas</li>
+<li>Nombre de dominio: vargas</li>
+<li>A&ntildeadimos  en /etc/hosts el equipo ssh-server.vargas, y ssh-client2.</li>
+</ul>
+<p> <img src='./files/1_cliente.jpg' /></p>
+
+<h2>Cliente Windows</h2>
+<UL type = square>
+<li>Instalar software cliente SSH en Windows (PuTTY)</li>
+<li>A&ntildeadimos en C:\Windows\System32\drivers\etc\hosts el equipo ssh-server y ssh-client1.</li>
+<p> <img src='./files/7.png' /></p>
+<li>Conexión de Windows , con cliente1 y cliente2 al servidor  </li>
+<p> <img src='./files/20.png' /></p>
+<p> <img src='./files/21.png' /></p>
+</ul>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
