@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>T&iacute;tulo del trabajo</title>
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Administraci&oacuten de Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>  Cliente LDAP</i></li>
+    <li><b>Componentes del grupo:</b> <i>Cinthia A. Vargas Jim&eacutenez</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></li>
+    <li><b>Fecha de entrega:</b> <i> NOVIEMBRE de 2014</i></li>
+  </ul>
+  </div>
+</div>
+
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'>Preparativos</a> | <a href='#bloque2'>Cliente LDAP</a> 
+</div>
+
+
+<h1><a id='bloque1'>Preparativos</a></h1>
+<ul>
+	<li><p>Una máquina servidor LDAP instalado (actividad pasada)</p></li>
+	<li><p>Una máquina cliente LDAP </p></li>
+</ul>		
+
+
+
+
+
+<h1><a id='bloque2'>CLIENTE LDAP</a></h1>
+
+<UL type = square>
+<h3>
+	<li>Instalamos libpam-ldap</li>
+	<p><img src='./files/1.png' /></p>
+	<li><p>Indicamos la IP del "servidor".</p></li>
+	<p><img src='./files/2_ipdelservidor.png' /></p>
+	<p><img src='./files/3.png' /></p>
+
+<p> <img src='./files/4.png' /></p>
+<p><img src='./files/5.png' /></p>
+<p><img src='./files/6.png' /></p>
+<p><img src='./files/7.png' /></p>
+<p><img src='./files/8.png' /></p>
+<li><p>Editamos el fichero /etc/ldap.conf , modificando en 
+ou=users, dc=cinthia, dc=aula108 en las dos primeras líneas y en la tercera en "ou=group"</p></li>
+<p><img src='./files/9.png' /></p>
+<li><p>Editados el fichero "nsswitch.conf" y lo editamos</p></li>
+<p><img src='./files/10.png' /></p>
+<li><p>Agregamos las siguientes líneas a los cuatro ficheros que se muestran en las capturas</p></li>
+<p><img src='./files/11.png' /></p>
+<p><img src='./files/12.png' /></p>
+<p><img src='./files/13.png' /></p>
+<p><img src='./files/14.png' /></p>
+<li><p>Instalamos "finger"</p></li>
+<p><img src='./files/15.png' /></p>
+<li><p>Teniendo encendidas las dos  máquinas "Cliente y Servidor" ,ejecutamos finger</p></li>
+<p><img src='./files/16.png' /></p>
+
+
+
+
+
+</h3>
+</UL>
+
+
+
+
+</body>
+</html>
