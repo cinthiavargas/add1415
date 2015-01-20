@@ -1,0 +1,118 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Tareas programadas</title>
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Administraci&oacuten de Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>  Tareas programadas</i></li>
+    <li><b>Componentes del grupo:</b> <i>Cinthia A. Vargas Jim&eacutenez</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></li>
+    <li><b>Fecha de entrega:</b> <i> Enero 2015</i></li>
+  </ul>
+  </div>
+</div>
+
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque2'>Windows</a> | <a href='#bloque3'>GNU/Linux </a>
+</div>
+
+
+<h1>
+
+<h1><a id='bloque2'> Tareas programadas en Windows</a></h1>
+
+<UL type = square>
+<p><b>1. APAGADO DEL EQUIPO</b></p>
+<li><p>Inicio , y en el cuadro de búsqueda : taskschd.msc</p></li>
+<li><p>Aparecerá la siguiente ventana , donde haremos clic en "programador de tareas" </p></li>
+<li><p>En el menú seleccionamos <b>Acción->Crear tarea...</b></p></li>
+<li><p>Escribimos un nombre a la tarea y una descripción</p></li>
+<p> <img src='./files/1.png' width="50%" height="60%" /></p>
+<li><p>Indicaremos la periodicidad que deseamos </p></li>
+<p> <img src='./files/2.png'  width="50%" height="60%" /></p>
+<p> <img src='./files/3.png'   width="50%" height="60%"/></p>
+<li><p>Seleccionamos la pestaña <b>Acciones</b> donde indicaremos que deseamos que haga nuestra tarea, en mi caso, apagar el ordenador</p></li>
+<p> <img src='./files/4.png'  width="50%" height="60%"/></p>
+<li><p>Una vez creada la tarea, seleccionamos <b>"Biblioteca del Programadores de tareas"</b> para visualizar la tarea</p></li>
+<p> <img src='./files/5.png'  width="50%" height="60%"/></p>
+<li><p>Según se muestra en la captura , el ordenador se apagará  </p></li>
+<p> <img src='./files/7.png'  width="50%" height="60%"/></p>
+<li><p>Observamos que la tarea se completó correctamente </p></li>
+<p> <img src='./files/6.png'  width="50%" height="60%"/></p>
+<br>
+<br>
+<br>
+
+
+<p><b>2. MOSTRAR MENSAJE</b></p>
+<li><p>Inicio , y en el cuadro de búsqueda : taskschd.msc</p></li>
+<li><p>Aparecerá la siguiente ventana , donde haremos clic en "programador de tareas" </p></li>
+<li><p>En el menú seleccionamos <b>Acción->Crear tarea básica</b></p></li>
+<li><p>Seleccionamos el inicio de la tarea , en la acción seleccionamos la opción de <b>"Mostrar mensaje"</b></p></li>
+<p> <img src='./files/1_1.png'  width="50%" height="60%"/></p>
+<p> <img src='./files/1_2.png'  width="50%" height="60%"/></p>
+<li><p>En el siguiente paso , escribimos lo que deseamos que muestre el mensaje</p></li>
+<p> <img src='./files/1_3.png'  width="50%" height="60%"/></p>
+<p> <img src='./files/1_4.png'  width="50%" height="60%"/></p>
+<li><p>Observamos que se ejecutó correctamente</p></li>
+<p> <img src='./files/1_5.png'  width="50%" height="60%"/></p>
+
+<p><b>2. ABRIR UN PROGRAMA </b></p>
+<li><p>En el menú seleccionamos <b>Acción->Crear tarea básica</b></p></li>
+<li><p>Especificamos la acción , en mi caso , es ejecutar  <b>GEANY</b></p></li>
+<p> <img src='./files/33.png'  width="50%" height="60%"/></p>
+<p> <img src='./files/34.png'  width="50%" height="60%"/></p>
+<p> <img src='./files/18.png'  width="50%" height="60%"/></p>
+<p> <img src='./files/35.png'  width="50%" height="60%"/></p>
+</UL>
+
+
+
+<h1><a id='bloque3'>Tareas programadas en GNU/Linux</a></h1>
+<UL type = square>
+<p><b>1. MOSTRAR MENSAJE</b></p>
+<li><p>Creamos el script con el mensaje que deseamos mostrar</p></li>
+<p> <img src='./files/44.png'     width="30%" height="30%"/></p>
+<li><p>El script creado anteriormente se guardará en Escritorio , y ejecutamos <b>crontab -e</b>, luego indicaremos la periodicidad en la que se ejecutará y escribiremos la ruta donde tenemos al script</p></li>
+<p> <img src='./files/45.png'   width="30%" height="30%"/></p>
+<li><p>Resultado</p></li>
+<p> <img src='./files/46.png'     width="30%" height="30%"/></p>
+<br>
+<br>
+<br>
+
+<p><b>2. APAGAR EQUIPO</b></p>
+
+<li><p>Indicamos la periodicidad en la que se efectuará , y su ruta</p></li>
+
+<p> <img src='./files/57.png'     width="20%" height="30%"/></p>
+
+<li><p>Resultado</p></li>
+
+<p> <img src='./files/66.png'     width="30%" height="30%"/></p>
+
+
+<p><b>3. Asíncrona</b></p>
+
+<p>Usamos el mismo script en el que muestra un mensaje , y editamos el fichero /etc/anacrontab e indicamos la periodicidad </p>
+<p> <img src='./files/98.png'     width="30%" height="30%"/></p>
+
+</ul>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
