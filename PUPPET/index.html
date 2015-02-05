@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title>PUPPET</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.23.1" />
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+	<img src='./imagenes/logo.png'/></br></br></br>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+
+    <li><b>M&oacute;dulo:</b> <i> ADD</i></li>
+    <li><b>Trabajo:</b><i> PuppetMaster</i></li>
+    <li><b>Componentes del grupo:</b><i> Jose Pablo y Cinthia</i></li>
+    <li><b>Curso Acad&eacute;mico:</b><i> 2014/2015</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<center>
+<a href='#bloque1'>Servidor</a>
+<a href='#bloque2'>Cliente1</a>
+<a href='#bloque3'>Cliente2</a>
+</center>
+</div>
+<h1><a id='bloque1'></a>Servidor</h1>
+<center><p>Configuramos el fichero etc/network/interfaces para modificar la IP.</p><center></br></br></br>
+<center><img src='./imagenes/1'/><center></br></br></br>
+<center><p>Comprobamos que se ha modificado la dirección IP.</p><center></br></br></br>
+<center><img src='./imagenes/2.png'/></center></br></br></br>
+<center><p>Editamos el fichero etc/hostname y el fichero /etc/hosts del servidor </p><center></br></br></br>
+<center><img src='./imagenes/6.png'/></center></br></br></br>
+<center><img src='./imagenes/5.png'/></center></br></br></br>
+<center><p>Comprobamos que se ha cambiado.</p><center></br></br></br>
+<center><img src='./imagenes/7.png'/></center></br></br></br>
+<center><p>Hacemos ping para comprobar que tenemos acceso a internet.</p><center></br></br></br>
+<center><img src='./imagenes/8.png'/></center></br></br></br>
+<center><img src='./imagenes/9'/></center></br></br></br>
+<center><p>Creamos un directorio llamado "classes" que contendrá el fichero de configuración hostlinux1.pp</p><center></br></br></br>
+<center><img src='./imagenes/10.png'/></center></br></br></br>
+<center><img src='./imagenes/21.png'/></center></br></br></br>
+<center><p>El fichero site.pp estará dentro de /etc/puppet/manifests.</p><center></br></br></br>
+<center><img src='./imagenes/11.png'/></center></br></br></br>
+<center><p>Reiniciamos el servicio puppetmaster.</p><center></br></br></br>
+<center><img src='./imagenes/12.png'/></center></br></br></br>
+<center><p>Hacemos tail /var/log/syslog para comprobar si hay errores.</p><center></br></br></br>
+<center><img src='./imagenes/13.png'/></center></br></br></br>
+<center><p>Modificamos el fichero de configuración de puppet.</p><center></br></br></br>
+<center><img src='./imagenes/14.png'/></center></br></br></br>
+<center><p>En el fichero /ect/default/puppet cambiamos la configuración sustituyendo "start=no" por "start=yes".</p><center></br></br></br>
+<center><img src='./imagenes/15.png'/></center></br></br></br>
+<center><p>Hacemos puppet --list y puppetca --print cliente1 para solicitar y mostrar el certificado del cliente1.</p><center></br></br></br>
+<center><img src='./imagenes/46.png'/></center></br></br></br>
+<center><p>Hacemos puppetca --revoke y puppetca --clean para eliminar el certificado del master.</p><center></br></br></br>
+<center><img src='./imagenes/47'/></center></br></br></br>
+<center><p>Vamos a crear el fichero de configuración hostlinux2.pp con el siguiente contenido.</p><center></br></br></br>
+<center><img src='./imagenes/48'/></center></br></br></br>
+<center><p>Modificados site.pp incluyendo hostlinux2.</p><center></br></br></br>
+<center><img src='./imagenes/50'/></center></br></br></br>
+<center><p>De nuevo, hacemos puppet --list y puppetca --print cliente1 para solicitar y mostrar el certificado del cliente2</p><center></br></br></br>
+<center><img src='./imagenes/53'/></center></br></br></br>
+
+<h1><a id='bloque2'></a>Cliente1</h1></br></br>
+<center><p>Configuramos la IP de la máquina.</p><center></br></br></br>
+<center><img src='./imagenes/1cliente'/><center></br></br></br>
+<center><p>Modificamos el fichero /etc/resolv.conf y añadimos el nombre del grupo.</p><center></br></br></br>
+<center><img src='./imagenes/2cliente'/></center></br></br></br>
+<center><p>También lo añadimos en el fichero /etc/hosts para que conozca al cliente.</p><center></br></br></br>
+<center><img src='./imagenes/4cliente'/></center></br></br></br>
+<center><p>Hacemos ping al master.gonzalez-vargas para comprobar que se pueden ver.</p><center></br></br></br>
+<center><img src='./imagenes/5cliente'/></center></br></br></br>
+<center><p>Estos son los ficheros que estań dentro del directorio puppet.</p><center></br></br></br>
+<center><img src='./imagenes/12cliente'/></center></br></br></br>
+<center><p>Volvemos a solicitar el certificado de cliente1 desde el cliente con hostlinux2.pp</p><center></br></br></br>
+<center><img src='./imagenes/13cliente'/></center></br></br></br>
+<center><p>Hacemos puppet agent --server master --test para comprobar si existen errores.</p><center></br></br></br>
+<center><img src='./imagenes/16cliente'/></center></br></br></br>
+<center><img src='./imagenes/17cliente'/></center></br></br></br>
+
+
+<h1><a id='bloque3'></a>Cliente2</h1></br></br>
+<center><p>Creamos el fichero hostwindows1.pp con el siguiente contenido.</p><center></br></br></br>
+<center><img src='./imagenes/1cliente2'/><center></br></br></br>
+<center><p>Volvemos a modificar el fichero site.pp y incluímos esta vez el hostwindows1.</p><center></br></br></br>
+<center><img src='./imagenes/2cliente2'/></center></br></br></br>
+<center><p>Modificamos el fichero hosts de windows añadiendo la Ip del master para que su Ip sea conocida y permita la conexión.</p><center></br></br></br>
+<center><p>Debido al error que nos daba modificamos node por cliente2 borrando gonzalez-vargas.</p><center></br></br></br>
+<center><img src='./imagenes/3cliente2'/></center></br></br></br>
+<center><p>También añadimos el equipo windows al fichero hosts del master.</p><center></br></br></br>
+<center><img src='./imagenes/4cliente2'/></center></br></br></br>
+<center><img src='./imagenes/4cliente4'/></center></br></br></br>
+<center><p>Ejecutamos los comandos que se muestran en la captura para generar los certificados.</p><center></br></br></br>
+<center><img src='./imagenes/22'/></center></br></br></br>
+<center><p>Dentro del cliente ejecutamos el siguiente comando:</p><center></br></br></br>
+<center><img src='./imagenes/23.png'/></center></br></br></br>
+<center><p>Comprobamos que se ha creado el fichero warning.txt.</p><center></br></br></br>
+<center><img src='./imagenes/24.png'/></center></br></br></br>
+<center><p>Editamos el fichero hostwindows2.pp como se muestra en la captura.</p><center></br></br></br>
+<center><img src='./imagenes/28'/></center></br></br></br>
+<center><p>También configuramos el fichero site.pp para incluir hostwindows2.</p><center></br></br></br>
+<center><img src='./imagenes/25.png'/></center></br></br></br>
+<center><p>Ejecutamos el siguiente comando observando que se crean los usuarios.</p><center></br></br></br>
+<center><img src='./imagenes/28.png'/></center></br></br></br>
+<center><p>Finalmente comprobamos que los usuarios se han creado.</p><center></br></br></br>
+<center><img src='./imagenes/29.png'/></center></br></br></br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<center><p></p></center>
+
+</body>
+</html>
