@@ -1,0 +1,160 @@
+<html>
+<head>
+	<title>Cinthia Vargas Jiménez</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.23.1" />
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+	<img src='./imagenes/logo.png'/></br></br></br>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>Repo A1</i></li>
+    <li><b>Componentes del grupo:</b> <i>Cinthia Vargas Jiménez</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></li>
+
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+
+</div>
+
+<h1><a id='bloque1'></a>Necesitaremos lo siguiente:</h1>
+
+<ul type="square">
+<li>Una máquina virtual <b>Windows 2008 Server Enterprise con IP estática</b></li>
+<li>Una máquina virtual <b>Windows 7 Enterprise con IP dinámica</b></li>
+</ul>
+
+<br>
+<br>
+<h3>SERVIDOR</h3>
+<p>Modificaremos la ip de nuestro servidor , en mi caso <b>172.16.108.21</b></p>
+
+<img src='./imagenes/1.png' WIDTH="30%" HEIGHT="50%"/></br></br></br>
+<p>Cambiaremos el nombre de nuestro equipo y el nombre del dominio al que le indicaremos <b>Aula108</b></p></br>
+<img src='./imagenes/2.png' WIDTH="30%" HEIGHT="50%"/></br></br></br>
+<p>Iremos al asistente y agregaremos el rol de <b>Servicios de archivos</b></p></br>
+<img src='./imagenes/3.png' WIDTH="30%" HEIGHT="50%"/></br></br></br>
+
+<p>Comprobamos si tenemos para los servicios NFS.</p></br>
+<img src='./imagenes/5.png' WIDTH="30%" HEIGHT="50%"/></br></br></br>
+<p>Este es el proceso para darle permisos de edición al usuario.</p></br>
+<img src='./imagenes/7.png' WIDTH="30%" HEIGHT="50%"/></br>
+<p>Con este proceso le damos al usuario el privilegio de lectura, sin poder modificar el archivo.</p></br>
+<img src='./imagenes/8.png' WIDTH="30%" HEIGHT="50%"/></center></br></br></br>
+<p>Mediante esta acción hacemos el documento publico, para que todo el mundo pueda acceder a el, también sin la opcion de edición, solo lectura</p></br>
+<img src='./imagenes/9.png' WIDTH="30%" HEIGHT="50%"/></br></br></br>
+
+
+<!---CLIENTE -->
+<h3>CLIENTE</h3>
+<p>Modificaremos el nombre del equipo y su dominio siendo el dominio Aula108.</p>
+<img src='./imagenes/11.png' WIDTH="30%" HEIGHT="50%"/></br>
+</br>
+<p>En nuestro cliente instalaremos los componenetes necesarios para NFS , dirigiendonos a <b>Características de windows</b> y seleccionaremos Cliente para NFS</p>
+<img src='./imagenes/12.png' WIDTH="30%" HEIGHT="50%"/></br></br>
+<p>Iniciaremos el servicio <b>NFS</b>, para ello abriremos como administrado una consola del sistema y ejecutaremos el siguiente comando : <b>nfsadmin client start</b></p>
+
+<img src='./imagenes/13.png' WIDTH="30%" HEIGHT="20%"/></br>
+</br>
+
+<p>El siguiente paso es montar nuestro sistema de ficheros exportado por <b>NFS</b> ejecutando: <b>mount -o anon,nolock,r,casesensitive \\172.16.108.21\public *</b> 
+<p>*La ip que se especifica en el comando es la dirección ip de nuestro servidor</p></p>
+<p><b>CARPETA PUBLICA</b></p>
+<img src='./imagenes/14.png'  WIDTH="30%" HEIGHT="20%"/></br>
+</br>
+<p><b>CARPETA PRIVADA</b></p>
+<img src='./imagenes/16.png'  WIDTH="30%" HEIGHT="20%"/></br>
+</br>
+<p>En la siguiente captura nos muestra que efectivamente , en <b>"public"</b> nos permite crear cualquier fichero /carpeta</p>
+<img src='./imagenes/15.png'  WIDTH="30%" HEIGHT="20%"/></br>
+</br>
+
+
+</br>
+<p>En la siguiente captura se muestra que no podemos crear ninguna carpeta en <b>"private"</b></p>
+<img src='./imagenes/17.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+
+<h1><a id='bloque1'></a>LINUX</h1>
+
+<ul type="square">
+<li>Una máquina virtual <b> que hará de servidor con IP 172.16.108.21</b></li>
+<li>Una máquina virtual <b>que hará de cliente con  IP 172.16.108.121</b></li>
+</ul>
+<!--- SERVIDOR-->
+</br>
+<h3>SERVIDOR</h3>
+<p>Primero editaremos nuestra ip en el fiche <b>/etc/network/interfaces </b>, según se muestra en la siguiente captura de pantalla</p>
+<img src='./imagenes/21.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+</br>
+<p>En el siguiente paso primero ejecutamos el comando <b>apt-get update</b> para actualizar los repositorios e instalar NFS mediante el comando <b>apt-get install nfs-common nfs-kernel-server</b></p>
+<img src='./imagenes/22.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+</br>
+<p>Crearemos las siguientes carpetas con los permisos asignados correspondientes según muestra la captura de pantalla</b></p>
+<img src='./imagenes/23.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+</br>
+<p>Iniciamos la configuración, y nos dirigimos a <b>/etc/exports</b> añadiendo las siguientes líneas</p>
+<img src='./imagenes/24.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+</br>
+<p>Paramos e Iniciamos el servicio <b>service nfs-kernel-server status/stop y start</b></p>
+<img src='./imagenes/25.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br></br>
+<!---CLIENTE-->
+<h3>CLIENTE</h3>
+
+<p>Editamos la ip de nuestro cliente , la cual será <b>172.16.108.121</b></p>
+<img src='./imagenes/31.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+<p></p>
+<img src='./imagenes/32.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+
+<p>Instalamos nmap</p>
+<img src='./imagenes/35.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+
+
+
+<p>Comprobaremos  que nuestro cliente puede ver a nuestro servidor mediante ping y nmap </p>
+<img src='./imagenes/33.png' WIDTH="30%" HEIGHT="30%"/></br>
+<img src='./imagenes/34.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+
+
+<p></p>
+
+</br>
+<p>El siguiente comando permite mostrar los recursos exportados por el servidor</p>
+<img src='./imagenes/36.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+<p>Crearemos una carpeta remoto que contendrá a <b>public</b></p>
+<img src='./imagenes/37.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+<p>Ejecutaremos el siguiente comando para montar los ficheros exportados por NFS</p>
+<img src='./imagenes/38.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+<p>Con el comando df -hT , podemos ver los recursos remotos montados en nuestras carpetas</p>
+<img src='./imagenes/39.png' WIDTH="30%" HEIGHT="30%"/></br>
+</br>
+<p>Nos ubicamos dentro de la carpeta publica y si nos deja crear un archivo</p>
+<img src='./imagenes/3_10.png' WIDTH="50%" HEIGHT="30%"/></br>
+</br>
+<p>Según muestra la captura de pantalla , en la carpeta "private" no podemos crear ningun archivo</p>
+<img src='./imagenes/3_12.png' WIDTH="40%" HEIGHT="30%"/></br>
+</br>
+<p>Fichero fstab modificado</p>
+<img src='./imagenes/3_13.png' WIDTH="40%" HEIGHT="30%"/></br>
+</br>
+</body>
+</html>
