@@ -1,0 +1,114 @@
+<html>
+<head>
+	<title>Recursos compartidos Samba (SMB/CIFS)</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.23.1" />
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+	<img src='./imagenes/logo.png'/></br></br></br>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+
+    <li><b>M&oacute;dulo:</b> <i> Administración de Sistemas Operativos</i></li>
+    <li><b>Trabajo:</b><i> Recursos compartidos Samba (SMB/CIFS)</i></li>
+    <li><b>Componentes del grupo:</b><i>Cinthia Vargas Jiménez</i></li>
+    <li><b>Curso Acad&eacute;mico:</b><i> 2014/2015</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<center>
+<a href='#bloque1'>UBUNTU</a>
+<a href='#bloque2'>WINDOWS</a>
+
+</center>
+</div>
+<center>
+<h1><a id='bloque1'></a>SO GNU/LINUX</h1>
+</center>
+<h2>SERVIDOR</h2>
+<p>Nuestro Servidor tendrá la siguiente ip</p>
+<center><img src='./imagenes/1.png'/></center></br></br></br>
+<p>Instalaremos el servidor samba con el siguiente  comando.</p>
+<center><img src='./imagenes/2.png'/></center></br>
+<p>Crearemos los grupos <b>Informaticos , panaderos , public </b></p>
+
+<center><img src='./imagenes/3.png'/></center></br></br></br>
+<p>Iniciaremos la configuración de Samba , renombrando el archivo existente mediante el siguiente comando : mv /etc/samba/smb.conf /etc/samba/smb.conf.000 </p>
+<center><img src='./imagenes/4.png'/></center></br></br></br>
+<p> El siguiente paso será editar el fichero smb.conf, según se muestra en la siguiente captura</p>
+<center><img src='./imagenes/5.png'/></br></br></br></center>
+<p>Crearemos una carpeta <b>samba</b> que contendrá a las siguientes carpetas:</p>
+<center><img src='./imagenes/6.png'/></center></br></br></br>
+<center><img src='./imagenes/7.png'/></center></br></br></br>
+
+<p>A continuación , añadiremos uno a uno los usuarios samba , mediante el siguiente comando <b>smbpasswd -a nombreusuario</b></p>
+<center><img src='./imagenes/8.png'/></center></br></br></br>
+
+<p>Comprobamos la lista creada de nuestros usuarios mediante el comando : <b>pdbedit -L</b></p>
+<center><img src='./imagenes/9.png'/></center></br></br></br>
+<p>Paramos e iniciamos el servicio, según se muestra en la siguiente captura de pantalla</p>
+<center><img src='./imagenes/10.png'/></center></br></br></br>
+<p>Comprobamos la sintaxis del fichero de configuración mediante el comando <b>testparm</b></p>
+<center><img src='./imagenes/11.png'/></center></br></br></br>
+<p>Con el comando <b>netstat -tap</b> verificamos si el servicio SMB/CIF está activo</p>
+<center><img src='./imagenes/12.png'/></center></br></br></br>
+
+<h2>CLIENTE</h2>
+<p>El cliente que usaremos , será una mv de WINDOWS 7 , nos conectaremos desde nuestro cliente hasta nuestro servidor , con el siguiente comando:</p>
+
+<center><img src='./imagenes/14.png'/></center></br></br></br>
+<center><img src='./imagenes/15.png'/></center></br></br></br>
+<center><img src='./imagenes/13.png'/></center></br></br></br>
+<p>Desde nuestro servidor ejecutamos los siguientes comandos <b>smbstatus y netstat -ntap</b> para comprobar los resultados</p>
+<center><img src='./imagenes/16.png'/></center></br></br></br>
+
+
+
+
+
+
+
+
+<h1><a id='bloque2'></a>UBUNTU</h1>
+<h2>CLIENTE</h2>
+<p>Accedemos al servidor samba , según muestra la captura de pantalla desde nuestro cliente</p>
+<center><img src='./imagenes/17.png'/></center></br></br></br>
+
+<p>Intentamos acceder a la carpeta de public , y comprobamos que no podemos acceder</p>
+<center><img src='./imagenes/18.png'/></center></br></br></br>
+
+<p>Accedemos a la carpeta informáticos y creamos unan nueva carpeta , comprobando que si nos deja</p>
+<center><img src='./imagenes/19.png'/></center></br></br></br>
+
+<p>Desde nuestro servidor lo comprobamos mediante el comano <b>smbstatus y netstat -ntap</b></p>
+<center><img src='./imagenes/20.png'/></center></br></br></br>
+
+<p>Ejecutamos el comando <b>smbtree</b> que muestra un árbol con todos los dominios conocidos, los servidores de cada dominio y sus recursos compartidos</p>
+<center><img src='./imagenes/21.png'/></center></br></br></br>
+
+
+<p>Accedemos a nuestra carpeta compartida mediante el comando <b>smbclient --list ip-servidor-samba</b></p>
+<center><img src='./imagenes/22.png'/></center></br></br></br>
+
+
+<p>Creamos una carpeta llamada public , dentro de la siguiente ruta <b>/mnt/samba-remoto/</b></p>
+<center><img src='./imagenes/23.png'/></center></br></br></br>
+
+<p>Mediante el siguiente comando, montamos un recurso compartido en el servidor</p>
+<center><img src='./imagenes/25.png'/></center></br></br></br>
+
+<p>Comprobamos el resultado desde nuestro servidor mediante el comando <b>smbstatus, netstat -ntap</b></p>
+<center><img src='./imagenes/25.png'/></center></br></br></br>
+
+<h3>MONTAJE AUTOMÁTICO:</h3>
+
+<p>Editaremos el fichero <b>/etc/fstab</b>, según se muestra en la siguiente captura</p>
+<center><img src='./imagenes/500.png'/></center></br></br></br>
+<p>En mi caso no se pudo ejecutar satisfactoriamente , después de modificar el fichero indicado en el paso anterior</p>
+<center><img src='./imagenes/5001.png'/></center></br></br></br>
+</body>
+</html>
