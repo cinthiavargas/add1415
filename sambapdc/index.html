@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Samba PDC</title>
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Administraci&oacuten de Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i> Samba PDC</i></li>
+    <li><b>Componentes del grupo:</b> <i>Cinthia A. Vargas Jim&eacutenez</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></li>
+    <li><b>Fecha de entrega:</b> <i> Marzo 2015</i></li>
+  </ul>
+  </div>
+</div>
+
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque2'>SERVIDOR</a> | <a href='#bloque3'>CLIENTE</a>
+</div>
+
+
+<h1>
+
+<h1><a id='bloque2'> Samba PDC</a></h1>
+
+<UL type = square>
+<p><b>SERVIDOR</b></p>
+<li><p>Después de instalar samba , mediante el comando apt-get install samba, editamos el fichero "/etc/samba/smb.conf" , despues de renombrar el mismo fichero para seguridad</p></li>
+
+<li><p>Modificaremos las siguientes líneas del fichero </p></li>
+<p> <img src='./files/2.png'  width="30%" height="50%"/></p>
+<li><p>Crearemos las siguientes carpetas según muestra la siguiente captura de pantalla</p></li>
+<p> <img src='./files/3.png'  width="30%" height="50%"/></p>
+<li><p>Modificaremos el fichero /etc/resolv.conf , con los siguientes datos</p></li>
+<p> <img src='./files/4.png'  width="30%" height="50%"/></p>
+<li><p>El siguiente paso será crear un grupo "machines" , luego crearemos las cuentas de client3 y client4  </p></li>
+<p> <img src='./files/5.png'  width="30%" height="50%"/></p>
+<li><p>Luego bloqueamos la cuenta mediante el siguiente comando "passwd -l client321$  </p></li>
+<p> <img src='./files/6.png'  width="30%" height="50%"/></p>
+<li><p>Crearemos la cuenta Samba , con el comando "smbpasswd -a -m client321 </p></li>
+<p> <img src='./files/7.png'  width="30%" height="50%"/></p>
+<br>
+
+
+
+<li><p>Crearemos dos grupos "enterprise" y "borg" , y a cada uno le asignaremos los siguientes usuarios</p></li>
+
+<p> <img src='./files/8.png'  width="30%" height="50%"/></p>
+<p> <img src='./files/9.png' width="30%" height="50%"/></p>
+<p> <img src='./files/10.png' width="30%" height="50%"/></p>
+<p> <img src='./files/11.png'  width="30%" height="50%"/></p>
+<li><p>Tambien crearemos una cuenta para el root </p></li>
+<p> <img src='./files/19.png' width="30%" height="50%"/></p>
+<p> <img src='./files/12.png'  width="30%" height="50%"/></p>
+<li><p>Crearemos las carpetas de perfil para cada usuario según se muestra en la siguiente captura </p></li>
+<p> <img src='./files/13.png'  width="50%" height="60%"/></p>
+
+<p> <img src='./files/13_2.png'  width="30%" height="50%"/></p>
+<h1><a id='bloque2'> CLIENTE</a></h1>
+<li><p>Cambiaremos el nombre de nuestro equipo con "client321" y especificamos el nombre del dominio al que pertenecerá</p></li>
+<p> <img src='./files/14.png'  width="30%" height="50%"/></p>
+<li><p>Para evitar el error , modificaremos lo siguiente, aportado por un compañero de clase en el foro de la asignatura </p></li>
+<p> <img src='./files/15.png'  width="30%" height="50%"/></p>
+<p> <img src='./files/16.png'  width="30%" height="50%"/></p>
+<li><p>Volvemos a especificar el dominio y probamos si podemos acceder </p></li>
+<p> <img src='./files/17.png'  width="30%" height="50%"/></p>
+<li><p>Según muestra la siguiente captura , nos hemos unido al dominio correctamente</p></li>
+<p> <img src='./files/18.png'  width="30%" height="50%"/></p>
+<li><p>Accedemos desde nuestro cliente con el usuario "kirk" </p></li>
+<p> <img src='./files/20.png'  width="30%" height="50%"/></p>
+<li><p>Hemos iniciado sesión con el usuario satisfactoriamente</p></li>
+<p> <img src='./files/21.png'  width="30%" height="50%"/></p>
+
+</ul>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
